@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача 2</title>
+</head>
+<body>
+
+<script>
+
+    //Разработайте функцию-конструктор,
+    //которая будет создавать объект Human (человек).
+    //Создайте массив объектов и реализуйте функцию,
+    //которая будет сортировать элементы массива по
+    //значению свойства Age по возрастанию или по убыванию.
+
+    function Human(firstname, lastname, age) {
+
+        //свойства экземпляра
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.age = age;
+    }
+
+    // Функция сортировки по возрастанию
+    function ascendingAge(personA, personB){
+        return personA.age - personB.age;
+    }
+
+    // Функция сортировки по убыванию
+    function waningAge(personA, personB){
+        return personB.age - personA.age;
+    }
+
+    // Массив объектов
+    var arrHuman = [
+        peter = new Human('Peter', 'Peterson', 23),
+        jonh = new Human('Jonh', 'Smith', 26),
+        steven = new Human('Steven', 'Stev', 33),
+        sarah = new Human('Sarah', 'Conor', 18)
+    ];
+
+    console.log('Начальный массив:');
+    for (var i=0; i < arrHuman.length; i++) {
+        console.log(arrHuman[i]);
+    }
+
+    arrHuman.sort(ascendingAge);
+    console.log('Сотрировка по возрастанию:');
+    for (var j=0; j < arrHuman.length; j++) {
+        console.log(arrHuman[j]);
+    }
+
+    arrHuman.sort(waningAge);
+    console.log('Сотрировка по убыванию:');
+    for (var k=0; k < arrHuman.length; k++) {
+        console.log(arrHuman[k]);
+    }
+
+</script>
+
+</body>
+</html>

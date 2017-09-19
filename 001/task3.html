@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача 3</title>
+</head>
+<body>
+
+<script>
+
+    //Разработайте функцию-конструктор, которая будет создавать
+    //объект Human (человек), добавьте на свое усмотрение свойства
+    //и методы в этот объект. Подумайте, какие методы и свойства
+    //следует сделать уровня экземпляра, а какие уровня функции-конструктора.
+
+    function Human(firstname, lastname, birdthday, sex) {
+
+        // свойства экземпляра
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.birdthday = birdthday;
+        this.sex = sex ? 'парень' : 'девушка';
+
+        this.fullName = this.firstName + ' ' + this.lastName;
+
+        // метод экземпляра
+        this.sayHi = function () {
+            console.log('Привет. Меня зовут - ' + this.fullName + '! Я - ' + this.sex);
+        };
+    }
+
+    // Метод функции-конструктора (статический)
+    Human.prototype.getBirthday = function () {
+        console.log('Дата рождения - ' + this.birdthday + '.');
+    };
+
+    Human.getOrigin = function () {
+        return new Human('Ева', 'Браун', '6 февраля 1912', false);
+    };
+
+    // Создание экземпляра
+    var person = new Human('Сергей', 'Глазов', '23 октября 1991', true);
+
+    // Как зовут человека?
+    person.sayHi();
+
+    // Когда он родился?
+    person.getBirthday();
+
+    // Проверить дефолтное состояние
+    Human.getOrigin().sayHi();
+    Human.getOrigin().getBirthday();
+
+</script>
+
+</body>
+</html>

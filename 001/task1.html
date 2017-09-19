@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача 1</title>
+</head>
+<body>
+
+<script>
+
+   //Создайте функцию конструктор, которая создает объект
+   //со свойством экземпляра, свойством функции-конструктора,
+   //с методом экземпляра и методом функции-конструктора.
+   //Имена выберите произвольно.
+
+   function Animal(name, age) {
+        // свойства экземпляра
+        this.name = name;
+        this.age = age;
+
+        // метод экземпляра
+        this.sayHi = function(){
+            console.log('My name is ' + this.name + '. My age:' + this.age);
+        }
+    }
+
+    // свойства функции-конструктора (статическое свойство)
+    Animal.Sex = 'Male';
+    console.log(Animal.Sex);
+
+    // Метод функции конструктора
+    Animal.setOrigin = function() {
+      return new Animal('Dog', 6);
+    };
+
+    // создание экземпляра
+    var test = new Animal('Cat', 10);
+    test.sayHi();
+
+
+</script>
+
+</body>
+</html>

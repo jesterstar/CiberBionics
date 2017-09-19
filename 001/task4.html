@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача 4</title>
+</head>
+<body>
+<script>
+
+    //Создайте пример демонстрирующий назначение метода toString().
+    function Box(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    Box.prototype.toString = function() {
+        return 'Box width: ' + this.width + ', height: ' + this.height;
+    };
+
+    var box = new Box(10, 20);
+
+//    document.write(box);
+    console.log(box+ '');
+
+</script>
+</body>
+</html>
