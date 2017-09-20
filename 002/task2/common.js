@@ -4,17 +4,13 @@ var MAX_PARAGRAPH = 10;
 //First example
 function addParagraph(el) {
 	var container = document.getElementById(el);
-
-	//Check paragraph on page
 	var allParagpraph = document.getElementsByTagName('p');
 
 	if (allParagpraph.length < MAX_PARAGRAPH) {
 		var newParagraph = document.createElement('p');
-
 		newParagraph.innerHTML = 'New paragraph ' + allParagpraph.length;
 		container.appendChild(newParagraph);
 	} else {
-		//Remove all paragraph
 		container.innerHTML = '';
 	}
 }
