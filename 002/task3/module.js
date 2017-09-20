@@ -1,12 +1,12 @@
 var MyQuery = (function() {
+	var resultArr = [], resultObj = [];
 	return {
 		FindClass: function(className) {
-			var resultArr = [];
 			var el = document.querySelectorAll("[class='"+className+"']");
 			for (var i=0; i < el.length; i++) {
 				resultArr.push(el[i]);
 			}
-			var resultObj = {
+			resultObj = {
 				title: 'Выбранны элементы с классом: ' + className,
 				arr: resultArr
 			};
@@ -21,7 +21,7 @@ var MyQuery = (function() {
 					resultArr.push(el[i]);
 				}
 			}
-			var resultObj = {
+			resultObj = {
 				title: 'Выбранны элементы с классом: ' + className,
 				arr: resultArr
 			};
