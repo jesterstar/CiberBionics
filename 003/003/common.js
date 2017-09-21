@@ -7,15 +7,15 @@ function getResult(id, result) {
 
 	return function () {
 		var newParagraph = document.createElement('p');
-		var value = el.value;
+		var str = el.value;
 		resultContainer.innerHTML = '';
 
-		if (pattern1.test(value)) {
-			sum = value.substring(0, 2) - value.substring(5, 7);
+		if (pattern1.test(str)) {
+			sum = str.substring(0, 2) - str.substring(5, 7);
 			newParagraph.innerHTML = 'Результат вычетания = ' + sum;
 			resultContainer.appendChild(newParagraph);
-		} else if (pattern2.test(value)) {
-			sum = parseInt(value.substring(0, 2)) + parseInt(value.substring(5, 7));
+		} else if (pattern2.test(str)) {
+			sum = parseInt(str.substring(0, 2)) + parseInt(str.substring(5, 7));
 			newParagraph.innerHTML = 'Результат сложения = ' + sum;
 			resultContainer.appendChild(newParagraph);
 		} else {
