@@ -3,7 +3,10 @@ var w, LINK_LENGTH = 11;
 function openWindow() {
 	w = window.open('window.html',
 		'New Window',
-		'width=' + screen.availWidth/2 + ',height=' + screen.availHeight/2 + ',top=' + screen.availHeight/4 + ',left=' + screen.availWidth/4);
+		'width=' + screen.availWidth/2 +
+		',height=' + screen.availHeight/2 +
+		',top=' + screen.availHeight/4 +
+		',left=' + screen.availWidth/4);
 }
 function closeWindow() {
 	w.close();
