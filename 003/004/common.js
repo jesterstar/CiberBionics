@@ -1,4 +1,4 @@
-var w;
+var w, LINK_LENGTH = 11;
 
 function openWindow() {
 	w = window.open('window.html',
@@ -13,7 +13,7 @@ function getResult(id) {
 	var el = document.getElementById(id);
 
 	return function () {
-		if (el.innerHTML.length == 11) {
+		if (el.innerHTML.length == LINK_LENGTH) {
 			el.innerHTML = el.innerHTML + ' (openned)';
 			openWindow();
 		} else {
