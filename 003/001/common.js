@@ -22,7 +22,7 @@ window.onload = function () {
 	}
 
 	get("start").onclick = function () {
-		intervalHandler = setInterval(count, 5);
+		intervalHandler = setInterval(count, 1000);
 	};
 
 	get("stop").onclick = function () {
@@ -40,8 +40,4 @@ window.onload = function () {
 
 var get = function (id){
 	return document.getElementById(id);
-};
-
-var getValue = function (id) {
-	return document.getElementById(id).innerHTML;
 };
