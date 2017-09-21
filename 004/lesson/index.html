@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        float: left;
+        background-color: rgb(255, 0, 0);
+        margin-right: 10px;
+    }
+</style>
+
+<button type="button" id="button">push me</button>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    function getResult(selector) {
+        var elList = document.querySelectorAll(selector);
+        var iterator = 0;
+
+        return function () {
+
+            if (iterator > elList.length - 1) {
+                iterator = 0;
+            }
+            for (var i=0; i < elList.length; i++) {
+                elList[i].style.backgroundColor = 'rgb(255, 0, 0)';
+            }
+            elList[iterator].style.backgroundColor = 'rgb(0, 255, 0)';
+            iterator++;
+        }
+    }
+
+    var button = document.getElementById('button');
+    var generateResult = getResult('div');
+
+    //Example click listener
+    button.addEventListener(
+            'click',
+            generateResult,
+            false);
+</script>
+
+</body>
+</html>
