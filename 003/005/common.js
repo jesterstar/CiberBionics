@@ -3,6 +3,7 @@ function getResult(id, result) {
 	var resultContainer = document.getElementById(result);
 
 	return function () {
+		resultContainer.innerHTML = '';
 		var newParagraph = document.createElement('p');
 		var str = el.value;
 		newParagraph.innerHTML = str;
