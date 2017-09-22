@@ -4,30 +4,74 @@ div.style.position = 'relative';
 var position = getComputedStyle(div);
 
 function topHandler() {
-	return function () {
-		var top = position.top.replace('px', '');
-		div.style.top = parseInt(top) - STEP_CONST + 'px';
+	var iterator = 0;
+
+	return function() {
+		var startDraw = setInterval(function(){
+			var top = position.top.replace('px', '');
+			if (iterator == 10) {
+				clearInterval(startDraw);
+				iterator = 0;
+			} else {
+				iterator++;
+				div.style.top = parseInt(top) - STEP_CONST + 'px';
+			}
+		}, 20);
+		return startDraw;
 	}
 }
 
 function bottomHandler() {
-	return function () {
-		var top = position.top.replace('px', '');
-		div.style.top = parseInt(top) + STEP_CONST + 'px';
+	var iterator = 0;
+
+	return function() {
+		var startDraw = setInterval(function(){
+			var top = position.top.replace('px', '');
+			if (iterator == 10) {
+				clearInterval(startDraw);
+				iterator = 0;
+			} else {
+				iterator++;
+				div.style.top = parseInt(top) + STEP_CONST + 'px';
+			}
+		}, 20);
+		return startDraw;
 	}
 }
 
 function leftHandler() {
-	return function () {
-		var left = position.left.replace('px', '');
-		div.style.left = parseInt(left) - STEP_CONST + 'px';
+	var iterator = 0;
+
+	return function() {
+		var startDraw = setInterval(function(){
+			var left = position.left.replace('px', '');
+			if (iterator == 10) {
+				clearInterval(startDraw);
+				iterator = 0;
+			} else {
+				iterator++;
+				div.style.left = parseInt(left) - STEP_CONST + 'px';
+			}
+		}, 20);
+		return startDraw;
 	}
 }
 
 function rightHandler() {
-	return function () {
-		var left = position.left.replace('px', '');
-		div.style.left = parseInt(left) + STEP_CONST + 'px';
+	var iterator = 0;
+
+	return function() {
+		var startDraw = setInterval(function(){
+			var left = position.left.replace('px', '');
+			if (iterator == 10) {
+				clearInterval(startDraw);
+				iterator = 0;
+			} else {
+				iterator++;
+				div.style.left = parseInt(left) + STEP_CONST + 'px';
+			}
+		}, 20);
+		return startDraw;
 	}
 }
 
