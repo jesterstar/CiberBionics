@@ -1,6 +1,7 @@
 var STEP_CONST = 10;
+var INTERVAL_STEP = 25;
 var div = document.getElementById('result');
-div.style.position = 'relative';
+	div.style.position = 'relative';
 var position = getComputedStyle(div);
 
 function topHandler() {
@@ -16,7 +17,7 @@ function topHandler() {
 				iterator++;
 				div.style.top = parseInt(top) - STEP_CONST + 'px';
 			}
-		}, 20);
+		}, INTERVAL_STEP);
 		return startDraw;
 	}
 }
@@ -34,7 +35,7 @@ function bottomHandler() {
 				iterator++;
 				div.style.top = parseInt(top) + STEP_CONST + 'px';
 			}
-		}, 20);
+		}, INTERVAL_STEP);
 		return startDraw;
 	}
 }
@@ -52,7 +53,7 @@ function leftHandler() {
 				iterator++;
 				div.style.left = parseInt(left) - STEP_CONST + 'px';
 			}
-		}, 20);
+		}, INTERVAL_STEP);
 		return startDraw;
 	}
 }
@@ -70,7 +71,7 @@ function rightHandler() {
 				iterator++;
 				div.style.left = parseInt(left) + STEP_CONST + 'px';
 			}
-		}, 20);
+		}, INTERVAL_STEP);
 		return startDraw;
 	}
 }
