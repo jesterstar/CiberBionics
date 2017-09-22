@@ -11,7 +11,6 @@ function randomizer(id) {
 	var resultContainer = document.getElementById('result-list');
 
 	return function () {
-		console.log(isNumeric(input.value));
 		if (input.value.length > 0 && isNumeric(input.value)) {
 			var number = getRandomInt(1, 100);
 			if (input.value < number) {
@@ -23,9 +22,9 @@ function randomizer(id) {
 			} else if (input.value < 0 && input.value > 100) {
 				resultContainer.innerHTML = 'диапазон чисел 1 - 100';
 			}
-		} else if (!isNumeric(input.value)) {
+		} else if (!isNumeric(input.value) && input.value.length > 0) {
 			resultContainer.innerHTML = 'введите число';
-		} else {
+		} else if (!isNumeric(input.value) && input.value.length == 0){
 			resultContainer.innerHTML = 'вы не заполнили поле';
 		}
 	}
