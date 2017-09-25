@@ -1,13 +1,6 @@
 var NOT_A_NUMBER = 'Only numbers';
 var div = document.getElementById('result');
 
-function notNumber(){
-	return NOT_A_NUMBER;
-}
-
-function isNumeric(n) {
-	return !isNaN(parseFloat(n)) && isFinite(n);
-}
 /**
  * Calculator constructor function
  * @param {string} a - first element selector
@@ -18,6 +11,7 @@ function Calculator(a, b, type) {
 	var first = document.getElementById(a);
 	var second = document.getElementById(b);
 	var x, y;
+
 	return function() {
 		x = first.value;
 		y = second.value;
@@ -41,64 +35,12 @@ function Calculator(a, b, type) {
 	}
 }
 
-function plusHandler(a, b) {
-	var first = document.getElementById(a);
-	var second = document.getElementById(b);
-	var x, y;
-	return function() {
-		x = first.value;
-		y = second.value;
-		if (isNumeric(x) && isNumeric(y)) {
-			div.innerHTML = +x + +y;
-		} else {
-			div.innerHTML = notNumber();
-		}
-	}
+function notNumber(){
+	return NOT_A_NUMBER;
 }
 
-function minusHandler(a, b) {
-	var first = document.getElementById(a);
-	var second = document.getElementById(b);
-	var x, y;
-	return function() {
-		x = first.value;
-		y = second.value;
-		if (isNumeric(x) && isNumeric(y)) {
-			div.innerHTML = +x - +y;
-		} else {
-			div.innerHTML = notNumber();
-		}
-	}
-}
-
-function multiplyHandler(a, b) {
-	var first = document.getElementById(a);
-	var second = document.getElementById(b);
-	var x, y;
-	return function() {
-		x = first.value;
-		y = second.value;
-		if (isNumeric(x) && isNumeric(y)) {
-			div.innerHTML = +x * +y;
-		} else {
-			div.innerHTML = notNumber();
-		}
-	}
-}
-
-function dividerHandler(a, b) {
-	var first = document.getElementById(a);
-	var second = document.getElementById(b);
-	var x, y;
-	return function() {
-		x = first.value;
-		y = second.value;
-		if (isNumeric(x) && isNumeric(y)) {
-			div.innerHTML = +x / +y;
-		} else {
-			div.innerHTML = notNumber();
-		}
-	}
+function isNumeric(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 var buttonPlus = document.getElementById('button-plus');
@@ -110,8 +52,6 @@ var generatePlusHandler = Calculator('firstInput', 'secondInput', 'addition');
 var generateMinusHandler = Calculator('firstInput', 'secondInput', 'subtraction');
 var generateMultiplyHandler = Calculator('firstInput', 'secondInput', 'multiplication');
 var generateDividerHandler = Calculator('firstInput', 'secondInput', 'division');
-
-var test = Calculator('firstInput', 'secondInput', 'buttons');
 
 buttonPlus.addEventListener(
 	'click',
