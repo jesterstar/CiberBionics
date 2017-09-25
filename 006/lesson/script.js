@@ -54,13 +54,13 @@ function moveRect(e){
 			div.style.left = +left - STEP_CONST + 'px';
 			break;
 		case 38:
-			div.style.top = +top + STEP_CONST + 'px';
+			div.style.top = +top - STEP_CONST + 'px';
 			break;
 		case 39:
 			div.style.left = +left + STEP_CONST + 'px';
 			break;
 		case 40:
-			div.style.top = +top - STEP_CONST + 'px';
+			div.style.top = +top + STEP_CONST + 'px';
 	}
 }
 
