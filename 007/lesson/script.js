@@ -59,13 +59,6 @@ function validateForm() {
             if (e.dataset.validationError == 'true') {
                 invalid = true;
             }
-            /*if (e.type == 'password') {
-                if (e[0].value == e[1].value) {
-                    invalid = true;
-                } else {
-                    invalid = false;
-                }
-            }*/
         }
     }
 
