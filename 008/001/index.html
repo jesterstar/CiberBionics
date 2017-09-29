@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+
+    <select name="colors">
+        <option value="#dadada">#dadada</option>
+        <option value="#eee">#eee</option>
+        <option value="#fff">#fff</option>
+    </select>
+
+    <input type="text" name="fontSize" placeholder="Insert a fotn-size value" />
+
+    <button name="save">Save changes</button>
+</form>
+<p id="result">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consectetur dolore, eius eligendi harum maiores nesciunt, nobis officia possimus quas qui repellat. Aliquid animi at maxime minus quidem, saepe sunt?</p>
+
+<script>
+    window.addEventListener('load', init, false);
+
+    function init(){
+        validate();
+    }
+
+    function validate(){
+        var f = document.forms[0];
+        var select = f.colors;
+        var input = f.fontSize;
+        var saveBtn = f.save;
+        var res = {};
+        var cookie = findCookieValue('styles');
+
+        if (cookie) {
+            var result = JSON.parse(cookie);
+            document.body.style.backgroundColor = result.color;
+            document.body.style.fontSize = result.font;
+        }
+
+        saveBtn.onclick = function() {
+            if (input.value.length > 0 && select.value.length != 0) {
+                res = {
+                    font: input.value + 'px',
+                    color: select.value
+                };
+                var cookkieValue = JSON.stringify(res);
+                document.cookie = 'styles=' + cookkieValue + ';max-age=' + 60 * 60 * 24 * 7 * 4;
+            } else {
+
+            }
+        }
+    }
+
+    function findCookieValue(cookieName) {
+        var allcookies = document.cookie;
+        var pos = allcookies.indexOf(cookieName + "=");
+
+        if (pos != -1) {
+            var start = pos + cookieName.length + 1;
+            var end = allcookies.indexOf(";", start);
+            if (end == -1) end = allcookies.length;
+            var value = allcookies.substring(start, end);
+            value = decodeURIComponent(value);
+            return value;
+        }
+    }
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+</script>
+</body>
+</html>
